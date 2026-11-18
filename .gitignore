@@ -1,0 +1,24 @@
+# ==========================================================================
+# 호박(Hobak) 중고거래 프로젝트 - Git 업로드 및 배포 보안 필터 (.gitignore)
+# ==========================================================================
+
+# 1. 환경변수 및 시크릿 키 파일 (SUPABASE_SERVICE_ROLE_KEY, SUPABASE_ACCESS_TOKEN 절대 업로드 금지)
+.env
+.env.*
+!.env.example
+
+# 2. 종속성 및 빌드 캐시
+node_modules/
+dist/
+.vercel/
+.netlify/
+
+# 3. 로컬 에이전트·MCP 설정 및 프로젝트 외 파일 제외
+.mcp.json
+.agents/
+TaekwonV_Dodam_*.html
+
+# 4. 운영체제 및 에디터 임시 파일
+.DS_Store
+Thumbs.db
+*.log
