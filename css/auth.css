@@ -1,0 +1,749 @@
+/* ==========================================================================
+   호박(Hobak) 중고거래 웹서비스 - 로그인/회원가입 모달 및 우측 상단 인증 버튼 스타일
+   (css/auth.css)
+   ========================================================================== */
+
+/* 우측 상단 헤더 인증 버튼 영역 */
+.hobak-auth-bar {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hobak-auth-login-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 40px;
+  padding: 0 18px;
+  border-radius: 999px;
+  border: 1.5px solid #FF6F0F;
+  background: #FFFFFF;
+  color: #FF6F0F;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.22s ease;
+}
+
+.hobak-auth-login-btn:hover {
+  background: #FFF4EB;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(255, 111, 15, 0.16);
+}
+
+.hobak-auth-nickname-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 40px;
+  padding: 0 15px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 111, 15, 0.28);
+  background: #FFF4EB;
+  color: #D9480F;
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: default;
+}
+
+.hobak-auth-logout-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 0 14px;
+  border-radius: 999px;
+  border: 1px solid #DEE2E6;
+  background: #FFFFFF;
+  color: #495057;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.hobak-auth-logout-btn:hover {
+  background: #F1F3F5;
+  color: #212529;
+  border-color: #CED4DA;
+}
+
+/* 상품 목록 카드 내 작성자 닉네임 표시 */
+.hobak-card-seller-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px dashed rgba(0, 0, 0, 0.06);
+  font-size: 12px;
+  color: #495057;
+}
+
+.hobak-card-seller-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 600;
+  color: #343A40;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hobak-card-seller-temp {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #FF6F0F;
+  flex-shrink: 0;
+}
+
+/* 로그인 / 회원가입 모달 백드롭 */
+.hobak-auth-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 3500;
+  background: rgba(18, 20, 24, 0.52);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: hobakAuthFadeIn 0.22s ease-out;
+}
+
+@keyframes hobakAuthFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.hobak-auth-modal {
+  width: 100%;
+  max-width: 430px;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.18), 0 4px 16px rgba(255, 111, 15, 0.1);
+  padding: 28px 26px 24px;
+  position: relative;
+  animation: hobakAuthSlideUp 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes hobakAuthSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.hobak-auth-close-btn {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: none;
+  background: #F1F3F5;
+  color: #495057;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.18s ease;
+}
+
+.hobak-auth-close-btn:hover {
+  background: #E9ECEF;
+  color: #212529;
+}
+
+.hobak-auth-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.hobak-auth-brand-icon {
+  font-size: 26px;
+}
+
+.hobak-auth-brand-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #212529;
+}
+
+.hobak-auth-subtitle {
+  font-size: 13.5px;
+  color: #868E96;
+  margin-bottom: 16px;
+}
+
+/* 글쓰기 경유 안내 배너 */
+.hobak-auth-reason-banner {
+  background: #FFF4EB;
+  border: 1px solid rgba(255, 111, 15, 0.3);
+  color: #D9480F;
+  border-radius: 12px;
+  padding: 10px 13px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  line-height: 1.45;
+}
+
+/* 로그인 / 회원가입 탭 스위치 */
+.hobak-auth-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: #F1F3F5;
+  border-radius: 12px;
+  padding: 4px;
+  margin-bottom: 18px;
+}
+
+.hobak-auth-tab {
+  border: none;
+  background: transparent;
+  padding: 9px 0;
+  border-radius: 9px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #868E96;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.hobak-auth-tab.is-active {
+  background: #FFFFFF;
+  color: #FF6F0F;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.hobak-auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.hobak-auth-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.hobak-auth-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #343A40;
+}
+
+.hobak-auth-label .req {
+  color: #FF6F0F;
+  margin-left: 2px;
+}
+
+.hobak-auth-input {
+  width: 100%;
+  height: 44px;
+  padding: 0 14px;
+  border-radius: 11px;
+  border: 1.5px solid #DEE2E6;
+  font-size: 14px;
+  color: #212529;
+  background: #FFFFFF;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hobak-auth-input:focus {
+  outline: none;
+  border-color: #FF6F0F;
+  box-shadow: 0 0 0 3px rgba(255, 111, 15, 0.14);
+}
+
+.hobak-auth-msg {
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 12px;
+  border-radius: 10px;
+  display: none;
+}
+
+.hobak-auth-msg.is-error {
+  display: block;
+  background: #FFF5F5;
+  color: #E03131;
+  border: 1px solid #FFC9C9;
+}
+
+.hobak-auth-msg.is-success {
+  display: block;
+  background: #EBFBEE;
+  color: #2B8A3E;
+  border: 1px solid #B2F2BB;
+}
+
+.hobak-auth-submit-btn {
+  width: 100%;
+  height: 46px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(135deg, #FF6F0F 0%, #FF8533 100%);
+  color: #FFFFFF;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  margin-top: 4px;
+  box-shadow: 0 8px 20px rgba(255, 111, 15, 0.28);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.hobak-auth-submit-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px rgba(255, 111, 15, 0.35);
+}
+
+.hobak-auth-submit-btn:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+/* ==========================================================================
+   고도화 기능 스타일:
+   1. 직접 올린 게시글 수정 / 삭제 / 끌올 / 상태변경 컨트롤
+   2. 상품 목록 상태 태그 + 거래완료 게시글 흐리게 처리(Dimming)
+   3. 거래 가능 보기 인라인 토글 & 상단 상태/시세 요약 바
+   4. 삭제 확인 모달 & 가격 제안하기 모달
+   ========================================================================== */
+
+/* 거래완료 카드 흐리게 처리 (Dimming & Grayscale) */
+.hobak-product-card.is-sold-out {
+  opacity: 0.56 !important;
+  background: rgba(241, 243, 245, 0.85) !important;
+  filter: saturate(0.45);
+}
+
+.hobak-product-card.is-sold-out:hover {
+  opacity: 0.78 !important;
+}
+
+.hobak-product-card.is-sold-out .hobak-card-thumb-img {
+  filter: grayscale(65%) brightness(0.88);
+}
+
+.hobak-product-card.is-sold-out .hobak-card-title,
+.hobak-product-card.is-sold-out .hobak-card-price {
+  color: #868E96 !important;
+  text-decoration: line-through;
+}
+
+.hobak-soldout-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: rgba(20, 22, 25, 0.38);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.hobak-soldout-scrim span {
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(30, 32, 36, 0.88);
+  color: #FFFFFF;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+/* 썸네일 좌측 상단 판매중 배지 */
+.hobak-status-badge.status-sale {
+  background: rgba(43, 138, 62, 0.9);
+  color: #FFFFFF;
+}
+
+/* 카드 본문 하단 상태 태그 & 내 게시글 태그 */
+.hobak-card-badges {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 7px;
+}
+
+.hobak-card-status-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.hobak-card-status-tag.tag-sale {
+  background: #EBFBEE;
+  color: #2B8A3E;
+  border: 1px solid #B2F2BB;
+}
+
+.hobak-card-status-tag.tag-reserved {
+  background: #FFF9DB;
+  color: #E67700;
+  border: 1px solid #FFEC99;
+}
+
+.hobak-card-status-tag.tag-done {
+  background: #E9ECEF;
+  color: #495057;
+  border: 1px solid #CED4DA;
+}
+
+.hobak-my-post-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  background: #FFF0F6;
+  color: #C2255C;
+  border: 1px solid #FCC2D7;
+}
+
+/* 목록 상단 상태별 빠른 필터 & 동네 평균 시세 요약 바 */
+.hobak-status-summary-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px 14px;
+  margin-bottom: 12px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(255, 111, 15, 0.18);
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+}
+
+.hobak-status-pills-group {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.hobak-status-filter-pill {
+  border: 1px solid #DEE2E6;
+  background: #FFFFFF;
+  color: #495057;
+  border-radius: 999px;
+  padding: 5px 12px;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.hobak-status-filter-pill:hover {
+  border-color: #FF6F0F;
+  color: #FF6F0F;
+}
+
+.hobak-status-filter-pill.is-active {
+  background: #1E2024;
+  color: #FFFFFF;
+  border-color: #1E2024;
+}
+
+.hobak-market-avg-badge {
+  font-size: 12.5px;
+  color: #495057;
+  background: #FFF4EB;
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 111, 15, 0.25);
+}
+
+.hobak-market-avg-badge strong {
+  color: #D9480F;
+  font-weight: 800;
+}
+
+/* 인라인 '거래 가능 보기' 체크박스 토글 */
+.hobak-inline-available-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 36px;
+  padding: 0 13px;
+  border-radius: 999px;
+  border: 1.5px solid #DEE2E6;
+  background: #FFFFFF;
+  font-size: 13px;
+  font-weight: 700;
+  color: #343A40;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s ease;
+}
+
+.hobak-inline-available-toggle:hover {
+  border-color: #FF6F0F;
+}
+
+.hobak-inline-available-toggle.is-checked {
+  background: #FFF4EB;
+  border-color: #FF6F0F;
+  color: #D9480F;
+}
+
+.hobak-inline-available-toggle input {
+  accent-color: #FF6F0F;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+
+/* 상세 페이지 내 게시글 관리 박스 (수정 / 삭제 / 끌올 / 상태변경) */
+.hobak-detail-owner-box {
+  background: linear-gradient(135deg, #FFF9F5 0%, #FFF4EB 100%);
+  border: 1.5px solid rgba(255, 111, 15, 0.35);
+  border-radius: 14px;
+  padding: 12px 14px;
+  margin-bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.hobak-detail-owner-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.hobak-detail-owner-badge {
+  font-size: 13px;
+  font-weight: 800;
+  color: #D9480F;
+}
+
+.hobak-detail-owner-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hobak-owner-action-btn {
+  border: 1px solid #DEE2E6;
+  background: #FFFFFF;
+  border-radius: 8px;
+  padding: 5px 10px;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.hobak-owner-action-btn.bump {
+  color: #2B8A3E;
+  border-color: #B2F2BB;
+  background: #EBFBEE;
+}
+
+.hobak-owner-action-btn.bump:hover {
+  background: #D3F9D8;
+}
+
+.hobak-owner-action-btn.edit {
+  color: #1971C2;
+  border-color: #A5D8FF;
+  background: #E7F5FF;
+}
+
+.hobak-owner-action-btn.edit:hover {
+  background: #D0EBFF;
+}
+
+.hobak-owner-action-btn.delete {
+  color: #E03131;
+  border-color: #FFC9C9;
+  background: #FFF5F5;
+}
+
+.hobak-owner-action-btn.delete:hover {
+  background: #FFE3E3;
+}
+
+.hobak-detail-visitor-box {
+  background: #F8F9FA;
+  border: 1px dashed #CED4DA;
+  border-radius: 12px;
+  padding: 10px 12px;
+  margin-bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  font-size: 12.5px;
+  color: #495057;
+}
+
+.hobak-detail-visitor-sub {
+  color: #868E96;
+}
+
+.hobak-detail-claim-test-btn {
+  align-self: flex-start;
+  background: #FFFFFF;
+  border: 1px solid #FF6F0F;
+  color: #FF6F0F;
+  border-radius: 8px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.hobak-detail-claim-test-btn:hover {
+  background: #FFF4EB;
+}
+
+.hobak-detail-offer-btn {
+  margin-left: auto;
+  border: 1px solid rgba(255, 111, 15, 0.4);
+  background: #FFF4EB;
+  color: #D9480F;
+  border-radius: 999px;
+  padding: 4px 11px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.hobak-detail-offer-btn:hover {
+  background: #FFE8CC;
+}
+
+.hobak-detail-image-status.status-sale {
+  background: rgba(43, 138, 62, 0.9);
+  color: #FFFFFF;
+}
+
+/* 삭제 확인 & 가격 제안 모달 */
+.hobak-detail-confirm-modal {
+  width: 90%;
+  max-width: 340px;
+  background: #FFFFFF;
+  border-radius: 18px;
+  padding: 22px 20px;
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.22);
+  text-align: center;
+}
+
+.hobak-confirm-icon {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.hobak-confirm-title {
+  font-size: 16.5px;
+  font-weight: 800;
+  color: #212529;
+  margin-bottom: 6px;
+}
+
+.hobak-confirm-desc {
+  font-size: 13px;
+  color: #495057;
+  margin-bottom: 14px;
+  line-height: 1.45;
+}
+
+.hobak-offer-chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.hobak-offer-chip {
+  border: 1px solid #FFD8A8;
+  background: #FFF4EB;
+  color: #D9480F;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 11.5px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.hobak-offer-input {
+  width: 100%;
+  height: 40px;
+  border-radius: 10px;
+  border: 1.5px solid #DEE2E6;
+  padding: 0 12px;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+.hobak-confirm-btns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.hobak-confirm-cancel {
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid #DEE2E6;
+  background: #F8F9FA;
+  color: #495057;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.hobak-confirm-delete {
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  background: #E03131;
+  color: #FFFFFF;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.hobak-confirm-submit-offer {
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  background: #FF6F0F;
+  color: #FFFFFF;
+  font-weight: 700;
+  cursor: pointer;
+}
+
