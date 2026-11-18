@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>호박(Hobak) - 우리 동네 따뜻한 중고거래 마켓</title>
+  <!-- 공통 및 3개 서브 에이전트 모듈 CSS + Antigravity Design Expert + 인증 모달 스타일 -->
+  <link rel="stylesheet" href="./css/common.css" />
+  <link rel="stylesheet" href="./css/list-view.css" />
+  <link rel="stylesheet" href="./css/detail-view.css" />
+  <link rel="stylesheet" href="./css/write-view.css" />
+  <link rel="stylesheet" href="./css/antigravity-design.css" />
+  <link rel="stylesheet" href="./css/auth.css" />
+</head>
+<body>
+  <div class="hobak-app">
+    <!-- 상단 화면 전환 빠른 안내 바 (팀장 통합 컨트롤러) -->
+    <div id="hobak-quick-mode-bar" class="hobak-quick-mode-bar">
+      <div class="hobak-quick-mode-inner">
+        <span class="hobak-quick-badge">🎃 호박(Hobak) 통합 사이트</span>
+        <div class="hobak-quick-tabs" role="tablist" aria-label="화면 모드 전환">
+          <button type="button" class="hobak-quick-tab active" data-mode-btn="browse-detail">
+            🖼️ 목록 + 상품상세 함께 보기 (1번째 이미지)
+          </button>
+          <button type="button" class="hobak-quick-tab" data-mode-btn="browse-list">
+            📋 상품 목록 + 인기검색어 보기 (2번째 PDF)
+          </button>
+          <button type="button" class="hobak-quick-tab" data-mode-btn="write">
+            ✏️ 상품 글쓰기 페이지 (상세 미리보기 포함)
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 공통 상단 헤더 (호박 로고, 검색창, 물건 팔기 버튼, 서비스 탭) -->
+    <div id="hobak-header-root"></div>
+
+    <!-- [뷰 1 & 2] 상품 목록 + 우측(상품 상세 패널 & 인기 검색어) 화면 -->
+    <main id="hobak-browse-view" class="hobak-main-workspace">
+      <div id="hobak-browse-layout" class="hobak-browse-layout detail-open">
+        <!-- 좌측: 동네 검색 결과 타이틀 + 필터 바 + 3열 상품 카드 그리드 -->
+        <section id="hobak-list-root" aria-label="중고거래 상품 목록"></section>
+
+        <!-- 우측: 클릭한 상품 상세 안내 패널 (1번째 이미지) & 인기 검색어 (2번째 이미지) -->
+        <aside class="hobak-right-column" aria-label="상품 상세 및 인기 검색어">
+          <div id="hobak-detail-wrapper" class="hobak-detail-panel-wrapper">
+            <div id="hobak-detail-root"></div>
+          </div>
+          <div id="hobak-popular-root"></div>
+        </aside>
+      </div>
+    </main>
+
+    <!-- [뷰 3] 상품 글쓰기 페이지 (좌측 입력 폼 + 우측 실시간 상세페이지 미리보기) -->
+    <section id="hobak-write-view" class="hobak-main-workspace hobak-hidden" aria-label="내 물건 팔기 글쓰기">
+      <div id="hobak-write-root"></div>
+    </section>
+
+    <!-- 하단 페이지네이션 및 푸터 (2번째 PDF 3페이지 반영) -->
+    <div id="hobak-footer-root"></div>
+  </div>
+
+  <!-- GSAP & ScrollTrigger (antigravity-design-expert 권장 모션 엔진, 오프라인 시에도 자체 CSS 3D 폴백 지원) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
+  <!-- Supabase JS SDK v2 -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <!-- 공통 데이터 모듈(10개 초기 데이터) + Supabase 연동 + Auth 모듈 + 3개 서브 에이전트 JS + 통합 앱 컨트롤러 + Antigravity 모션 엔진 -->
+  <script src="./js/data.js"></script>
+  <script src="./js/supabase-config.js"></script>
+  <script src="./js/auth.js"></script>
+  <script src="./js/list-view.js"></script>
+  <script src="./js/detail-view.js"></script>
+  <script src="./js/write-view.js"></script>
+  <script src="./js/app.js"></script>
+  <script src="./js/antigravity-motion.js"></script>
+</body>
+</html>
