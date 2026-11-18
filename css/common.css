@@ -1,0 +1,172 @@
+/* 호박(Hobak) 중고거래 웹서비스 - 공통 스타일 및 통합 레이아웃 */
+:root {
+  --hobak-primary: #FF6F0F;
+  --hobak-primary-hover: #E85E00;
+  --hobak-primary-light: #FFF4EB;
+  --hobak-green: #2B8A3E;
+  --hobak-dark: #1E2024;
+  --hobak-text: #212529;
+  --hobak-text-sub: #868E96;
+  --hobak-bg: #F8F9FA;
+  --hobak-surface: #FFFFFF;
+  --hobak-border: #E9ECEF;
+  --hobak-radius-lg: 18px;
+  --hobak-radius-md: 12px;
+  --hobak-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Pretendard", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+  background-color: var(--hobak-bg);
+  color: var(--hobak-text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+}
+
+/* 메인 앱 컨테이너 및 뷰 전환 */
+.hobak-app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 상단 빠른 모드 전환 바 */
+.hobak-quick-mode-bar {
+  background: #1E2024;
+  color: #FFFFFF;
+  padding: 8px 24px;
+  font-size: 13px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hobak-quick-mode-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.hobak-quick-badge {
+  font-weight: 700;
+  color: #FFB366;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hobak-quick-tabs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.hobak-quick-tab {
+  background: rgba(255, 255, 255, 0.1);
+  color: #DEE2E6;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  padding: 5px 14px;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.hobak-quick-tab:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+}
+
+.hobak-quick-tab.active {
+  background: var(--hobak-primary);
+  color: #FFFFFF;
+  border-color: var(--hobak-primary);
+  box-shadow: 0 2px 8px rgba(255, 111, 15, 0.35);
+}
+
+.hobak-main-workspace {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px 24px 48px;
+  flex: 1;
+}
+
+/* 목록 + 우측 사이드바(인기 검색어 or 상품 상세 안내 패널) 2단 레이아웃 */
+.hobak-browse-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 380px;
+  gap: 24px;
+  align-items: start;
+}
+
+.hobak-browse-layout.detail-open {
+  grid-template-columns: minmax(0, 1fr) 440px;
+}
+
+.hobak-right-column {
+  position: sticky;
+  top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.hobak-detail-panel-wrapper {
+  background: var(--hobak-surface);
+  border-radius: var(--hobak-radius-lg);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--hobak-border);
+  overflow: hidden;
+  animation: hobakSlideIn 0.22s ease-out;
+}
+
+@keyframes hobakSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.hobak-hidden {
+  display: none !important;
+}
+
+/* 반응형 처리 */
+@media (max-width: 1040px) {
+  .hobak-browse-layout,
+  .hobak-browse-layout.detail-open {
+    grid-template-columns: 1fr;
+  }
+
+  .hobak-right-column {
+    position: static;
+  }
+
+  .hobak-detail-panel-wrapper.mobile-modal-active {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    border-radius: 0;
+    overflow-y: auto;
+    background: #fff;
+  }
+}
